@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+    <meta charset="utf-8">
+    <script src="public/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="public/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="public/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="public/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <style>
+  .error{
+    color:#00fa9a;
+}
+ #knopka{
+     background-color: #008000;
+ }
+  form{
+      width:500px;
+      height: 200px;
+      position: absolute;
+      background-color: #7532a9;
+  }
+
+    </style>
+</head>
+<body>
+
+
+<form  method="post" action="time.php" id="LogForm">
+   <b> Ваш логин:</b> <br/>
+    <input type="text" name="login"></br>
+   <b> Ваш пароль:</b> <br/>
+    <input type="password" name="pswd"></br>
+    <b> Ваш Email:</b> <br/>
+    <input type="email" name="email"></br>
+    <input type="submit" id="knopka" name="enter" value="Войти"></br>
+
+</form>
+
+
+
+<script>
+ $(document).ready(function(){
+$('#LogForm').validate({
+    
+    rules:{
+
+   login:{
+    required:true,
+     minlength:4,
+     maxlength:15
+
+   },
+  pswd:{
+      required:true,
+      minlength:6,
+      maxlength:18
+  },
+
+        email: {
+            required: true,
+            email: true
+        }
+},
+  messages:{
+
+      login:{
+          required:"Это поле необходимо заполнить!!!",
+          minlength:"Логин должен быть минимум 4 символа",
+          maxlength:"Логин должен быть максимум 15 символов"
+
+      },
+      pswd:{
+          required:"Это поле необходимо заполнить!!!",
+          minlength:"Пароль должен быть минимум 6 символов",
+          maxlength:"Пароль должен быть максимум 18 символов"
+      },
+
+      email: {
+          required: "Введите правильный Email!!!"
+
+      }
+
+  }
+
+});
+
+
+    });
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
+
